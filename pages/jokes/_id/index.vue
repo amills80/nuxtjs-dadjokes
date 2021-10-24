@@ -18,13 +18,15 @@ export default {
   },
   async created(){
     let id = this.$route.params.id;
+    console.log('testid: ', id);
     const config = {
       headers: {
-        "Accept": "application/json",
+        "Accept": "application/json"
       }
     }
     try {
-      const res = await axios.get(`https://icanhazdadjoke.com/j/${id}`, config)
+      const res = await axios.get(`/api/j/${id}`, config);
+      // const res = await axios.get(`https://icanhazdadjoke.com/j/${id}`, config)
       console.log('ping: ', res.data);
       this.joke = res.data.joke
     } catch (error) {

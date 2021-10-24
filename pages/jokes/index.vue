@@ -23,7 +23,8 @@ export default {
         }
       }
       try {
-        const res = await axios.get(`https://icanhazdadjoke.com/search?term=${text}`, config)
+        const res = await axios.get(`/api/search?term=${text}`, config)
+        // const res = await axios.get(`https://icanhazdadjoke.com/search?term=${text}`, config)
         console.log('searchPing: ', res.data.results);
         this.jokes = res.data.results
       } catch (error) {
@@ -55,7 +56,8 @@ export default {
       }
     }
     try {
-      const res = await axios.get('https://icanhazdadjoke.com/search', config)
+      const res = await axios.get('/api/search', config)
+      // const res = await axios.get('https://icanhazdadjoke.com/search', config)
       console.log('ping: ', res.data.results);
       this.jokes = res.data.results
     } catch (error) {

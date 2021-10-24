@@ -37,6 +37,14 @@ export default {
     'bootstrap-vue/nuxt',
     '@nuxtjs/axios'
   ],
+  axios: {
+    proxy: true // Can be also an object with default options
+  },
+  proxy: {
+    // '/api/': 'https://icanhazdadjoke.com',
+    '/api/': { target: 'https://icanhazdadjoke.com/', pathRewrite: {'^/api/': ''}, changeOrigin: true },
+    // '/api2/': 'http://api.another-website.com'
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
